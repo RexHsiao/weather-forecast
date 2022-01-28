@@ -1,0 +1,25 @@
+
+.upcoming-box{
+    background-color: white;
+    color: black;
+    height: 50%;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    justify-content: center;
+    .weekList{
+        display: flex;
+        justify-content: space-between;
+        padding: none;
+        padding-left: 2%;padding-right: 2%;
+        padding-top: 2%;
+        width: 95%;
+    }
+}
+
+@media (max-width : 767px){
+    .upcoming-box{
+        .weekList{
+            padding-left: 0%;padding-right: 0%;
+        }
+    }
+}

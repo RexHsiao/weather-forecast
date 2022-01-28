@@ -1,0 +1,19 @@
+@import '../../../style.scss';
+$gradient:linear-gradient(#00057A, #721C87);
+
+.homeBackground {
+    background-image: $gradient-green;
+    width: 100%;
+    height: 100%;
+    padding-top:3vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.homeBackground-dark{
+    background-image: $gradient-dark;
+    color: white;
+}

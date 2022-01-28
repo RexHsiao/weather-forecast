@@ -1,0 +1,31 @@
+@import '../../style.scss';
+
+.add-box{
+    position: relative;
+    align-items: center;
+    height: 100%;
+    .add-container{
+        width: 100px;
+        height: 100px;
+        position: relative;
+        align-items: center;
+    
+        >div{
+            border-radius:15px;
+            position: absolute;
+            background-image: $gradient-blue;
+        }
+        .vertical{
+            height: 100px;
+            width: 15px;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        .horizontal{
+            width: 100px;
+            height: 15px;
+            top:50%;
+            transform: translateY(-50%);
+        }
+    }
+}

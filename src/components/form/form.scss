@@ -1,0 +1,60 @@
+@import '../../style.scss';
+
+.form{
+    width: 304px;
+    height: 136px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    div{
+        width: 250px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .input, .button{
+        border-radius: 10px;
+        border: none;
+        font-size:16px;
+        height: 60px;
+        width: 250px;
+        display: block;
+        font-size: 25px; 
+        border: none;
+    }
+
+    .input{
+        margin-bottom: 20px;
+        text-align: center;
+        box-sizing: 300px;
+        left: 50%;
+    }
+    .button{
+        width: 254px;
+        background-image: $gradient-blue;
+        color:white;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .button-dark{
+        background-image:$gradient-lightPurple;
+    }
+}
+
+@media (max-width : 767px) {
+    .form{
+        .input, .button{
+            height: 50px;
+            font-size: 20px; 
+            border: none;
+            width: 100%;
+        }
+        .input{
+            margin-bottom: 20px;
+            text-align: center;
+            box-sizing: 300px;
+            left: 50%;
+        }
+    }
+}

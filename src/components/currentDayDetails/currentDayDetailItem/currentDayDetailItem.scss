@@ -1,0 +1,25 @@
+
+.detailItem{
+    text-align: center;
+    font-weight: 400;
+    p{
+        font-size: 25px;
+    }
+    h5{
+        font-weight: 400;
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width : 767px){
+    .detailItem{
+        p{
+            font-size: 18px;
+        }
+        h5{
+            font-weight: 400;
+            font-size: 12px;
+        }
+    }
+}

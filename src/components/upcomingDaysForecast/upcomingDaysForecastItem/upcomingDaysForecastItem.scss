@@ -1,0 +1,45 @@
+
+.weekday{
+    display: table-cell;
+    list-style-type: none;
+    margin: 10px;
+    vertical-align: middle;
+    flex-direction: row;
+    color: #444444;
+    text-align: center;
+    width: 100px;
+    >div{
+        margin: 8%;
+        span{
+            font-size: 25px;
+        }
+        h5{
+            width: 100%;
+            font-size: 20px;
+            font-weight: 400;
+        }
+    }
+}
+
+@media (max-width : 767px){
+    .weekday{
+        .status-img{
+            img{
+                width:30px;
+                padding: 0;
+            }
+        }
+        >div{
+            width:35px;
+            span{
+                font-size: 12px;
+            }
+            h5{
+                text-align: center;
+                width: 100%;
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+    }
+}

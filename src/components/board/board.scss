@@ -1,0 +1,26 @@
+@import '../../style.scss';
+
+.board{
+    width: 1000px;
+    height:750px;
+    max-width: 80%;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(to top right, rgba(0, 255, 155, 0.4), rgba(0, 62, 255, 0.4));
+    display: flex;
+    justify-content:center;
+    position: relative;
+    transform: translateY(-6%);
+}
+
+.board-dark {
+    background-image: linear-gradient(to top right, rgba(0, 5, 122, 0.5), rgba(114, 28, 135, 0.5));
+}
+
+@media (max-width : 767px) and (max-height : 900px){
+    .board{
+        transform: translateY(-10%);
+        max-width: 340px;
+        height: 600px;
+    }
+}

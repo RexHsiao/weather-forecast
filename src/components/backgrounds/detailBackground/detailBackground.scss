@@ -1,0 +1,71 @@
+@import '../../../style.scss';
+
+.detailBackground {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    .background{
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        border: 1px solid white;
+        position: relative;
+        .circle{
+            width: 1600px; height:1600px;
+            border-radius:50%;
+            position: absolute;
+            background-image: $gradient-green;
+            &:first-child, &:last-child{
+                background-image: $gradient-blue;
+            }
+        }
+        #C1{
+            top: -400px;
+            left: -300px;
+        }
+        #C2{
+            top: 200px;
+            left: -150px;
+        }
+        #C3{
+            top: -700px;
+            left: 1000px;
+        }
+        #C4{
+            top: 300px;
+            left: 1000px;
+        }
+    }
+    .content{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        // flex-direction: column;
+        top:8vh;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+    }
+}
+
+
+
+.detailBackground-dark{
+    .background{
+        .circle{
+            width: 1600px; height:1600px;
+            border-radius:50%;
+            position: absolute;
+            background-image: $gradient-purple;
+            &:first-child, &:last-child{
+                background-image: $gradient-lightPurple;
+            }
+        }
+        color: white;
+    }
+}

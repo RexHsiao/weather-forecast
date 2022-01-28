@@ -1,0 +1,99 @@
+@import '../../style.scss';
+
+.card {
+    height: 600px;
+    width: 300px;
+    min-width: 340px;
+    border-radius:15px;
+    margin-right: 65px;
+    background-color: white;
+    box-shadow: 0 4px 12px 0 rgba(39, 39, 39, 0.2);
+    color: #444444;
+    position: relative;
+    &:first-child {
+        margin-left:3%;
+    }
+    &:hover {
+        position:relative;
+        top:-5px;
+        cursor: pointer;
+        .remover-container{
+            display:flex !important;
+        }
+    }
+    >div{
+        display: flex;
+        justify-content: center;
+        h3{
+            font-size:30px;
+            font-weight: 300;
+        }
+    }
+    
+    .maxMinDeg {
+        justify-content: space-between;
+        padding: 10%;
+        margin-top: 20px;
+        >div>div{
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            &.degree{
+                font-size: 35px;
+                font-weight: 300;
+                margin-top: 5px;
+            }   
+        }
+        .minDeg {
+            .arrow-down {
+                width: 0; 
+                height: 0; 
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                
+                border-top: 10px solid $primary;
+            }
+            div:last-child{
+                color: $primary;
+            }
+        }
+        .maxDeg {
+            .arrow-up {
+                width: 0; 
+                height: 0; 
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                
+                border-bottom: 10px solid $red;
+            }
+            div:last-child{
+                color: $red;
+            }
+        }
+    }
+}
+
+.card-dark{
+    background-image: $gradient-dark;
+    color: white;
+}
+
+@media (max-width : 767px) {
+    .card {
+        >div{
+            h3{
+                font-size:25px;
+                font-weight: 300;
+            }
+        }
+        .maxMinDeg {
+            >div>div{
+                &.degree{
+                    font-size: 20px;
+                    font-weight: 300;
+                    margin-top: 5px;
+                }   
+            }
+        }
+    }
+}

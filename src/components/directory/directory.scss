@@ -1,0 +1,52 @@
+a {
+    text-decoration: none;
+    color:none;
+}
+.directory {
+    height: 100vh;
+    width:100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    padding: 2.5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    .newCitiesCard{
+        position: relative;
+
+        &:hover{
+            .remover-container{
+                display: block;
+            }
+        }
+        .remover-container {
+            z-index: 9999;
+            position: absolute;
+            left: 325px;
+            top:-35px;
+            display:none;
+            &:hover{
+                top:-40px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (max-width : 767px) {
+    .directory {
+        .newCitiesCard{
+            .remover-container {
+                display:inline;
+                left: 50%;
+                transform: translateX(-50%);
+                top:83%;
+                &:hover{
+                    top:83%;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

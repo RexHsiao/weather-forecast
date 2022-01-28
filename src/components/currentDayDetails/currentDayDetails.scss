@@ -1,0 +1,115 @@
+@import '../../style.scss';
+
+.currentDetails-container{
+    width: 100%;
+    height: 50%;
+    color: #fff;
+    .basicInfo{
+        display: flex;
+        align-items: center;
+        position: relative;
+        top:8%;
+        padding-left:10%;padding-right:10%;
+        justify-content: space-between;
+        .weatherInfo{
+            display: flex;
+            align-items: center;
+            .weatherIcon{
+                position: relative;
+                animation-name: weatherIcon-animation;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+            }
+
+            .weatherStatus {
+                margin-left:10%;
+                width: 200px;
+                >div{
+                    text-align: center;
+                }
+                h2{
+                    font-weight: 300;
+                    font-size: 45px;
+                }
+                h5{
+                    font-weight: 300;
+                    font-size: 25px;
+                }
+            }
+        }
+
+        .location{
+            width: 200px;
+            text-align: center;
+            span{
+                font-size: 35px;
+                font-weight: 300;
+                letter-spacing: 2px;
+            }
+            .underline{
+                background-color: white;
+                height: 5px;width: 50px;
+                margin-top:8px;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    .detailInfo {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 6%;padding-right: 6%;
+        position: relative;
+        top:3%;
+    }
+}
+
+@keyframes weatherIcon-animation {
+    0%   {left:0px; top:5px;}
+    25%  {left:5px; top:0px;}
+    50%  {left:0px; top:5px;}
+    75%  {left:5px; top:0px;}
+    100% {left:0px; top:5px;}
+  }
+
+@media (max-width : 767px){
+    .currentDetails-container{
+        .basicInfo{
+            top: 14%;
+            .weatherInfo{
+                .weatherIcon{
+                    width: 120px;
+                }
+                .weatherStatus {
+                    margin-left:-7%;
+                    h2{
+                        font-size: 35px;
+                    }
+                    h5{
+                        font-size: 20px;
+                    }
+                }
+            }
+            .location{
+                position:absolute;
+                top: -12%;
+                left: 50%;
+                transform: translateX(-50%);
+                span{
+                    font-size: 25px;
+                    font-weight: 300;
+                    letter-spacing: 2px;
+                }
+                .underline{
+                    display: none;
+                }
+            }
+        }
+        .detailInfo {
+            top:10%;
+        }
+    }
+    
+}

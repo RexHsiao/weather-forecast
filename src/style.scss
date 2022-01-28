@@ -1,0 +1,53 @@
+$primary: #00FF9B;
+$secondary: #003EFF;
+$red: #FF0070;
+
+$gradient-primary:linear-gradient(#003EFF, #00FF9B);
+$gradient-green:linear-gradient(to top right, #9CFF95, #AFE7FF);
+$gradient-blue:linear-gradient(to top right, #9CFF95, #00B3FF);
+$gradient-purple:linear-gradient(to top right, #00057A, #721C87);
+$gradient-lightPurple:linear-gradient(to top right, #FF8B8B, #6676FF);
+$gradient-dark:linear-gradient(#00057A, #721C87);
+
+*{
+    // border: 1px solid #444;
+}
+
+@media (max-height: 380px) and (max-width : 900px){
+    .logo-container{
+        span{
+            display: none;
+        }
+    }
+    .modeToggle{
+        .toggle-tag{
+            display: none;
+        }
+    }
+
+    .detailItem {
+        display: none;
+        p, h5{
+            font-size:12px;
+        }
+    }
+
+    .basicInfo{
+        display: flex-wrap;
+    }
+}
+
+@media (max-width : 767px){
+    .logo-container{
+        span{
+            display: none;
+        }
+    }
+    .modeToggle{
+        .toggle-tag{
+            display: none;
+        }
+    }
+    
+    
+}

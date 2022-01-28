@@ -1,0 +1,66 @@
+$rond-min: 25px;
+$rond-max: 90px;
+$first-color: #2a2a72;
+$second-color: #009ffd;
+
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: rgba(0, 0, 0, .1);
+  }
+  .box-loader {
+    height: 120px;
+    width: 120px;
+    position: relative;
+  }
+  .box-loader .rond {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+  }
+  .box-loader .first {
+    height: $rond-min;
+    width: $rond-min;
+    animation: anim_one 2s linear infinite;
+    background: $first-color;
+  }
+  .box-loader .second {
+    left: calc(100% - $rond-max);
+    top: calc(100% - $rond-max);
+    height: $rond-max;
+    width: $rond-max;
+    animation: anim_two 2s linear infinite;
+    background: $second-color;
+  }
+  
+  @keyframes anim_one {
+    0%,100% { top: 0; left: 0; }
+    25% { top: 0; left: calc(100% - $rond-min); }
+    50% {
+      left: calc(100% - $rond-max);
+      top: calc(100% - $rond-max);
+      height: $rond-max;
+      width: $rond-max;
+      background: $second-color;
+    }
+    75% { left: 0; top: calc(100% - $rond-min); }
+  }
+  
+  @keyframes anim_two {
+    0%,100% {
+      left: calc(100% - $rond-max);
+      top: calc(100% - $rond-max);
+      height: $rond-max;
+      width: $rond-max;
+    }
+    25% { top: calc(100% - $rond-min); left: 0; }
+    50% {
+      left: 0;
+      top: 0;
+      height: $rond-min;
+      width: $rond-min;
+      background: $first-color;
+    }
+    75% { left: calc(100% - $rond-min); top: 0; }
+  }
