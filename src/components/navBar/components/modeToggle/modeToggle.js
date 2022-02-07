@@ -1,20 +1,23 @@
 import React from 'react';
 import './modeToggle.scss';
 
-const ModeToggle = ({ handleToggle, toggle }) => {
+import { connect } from 'react-redux';
+import { toggleTheme } from '../../../../redux/theme/theme.actions'
+
+const ModeToggle = ({ toggleTheme, darkMode }) => {
     return (
         <div className="modeToggle">
             <span className="toggle-tag">LIGHT</span>
             
             <input
-                checked={toggle}
-                onChange={handleToggle}
+                checked={darkMode}
+                onChange={toggleTheme}
                 className="react-switch-checkbox"
                 id={`react-switch-new`}
                 type="checkbox"
             />
             <label
-                style={{ background: toggle && '#FF0070'}}
+                style={{ background: darkMode && '#FF0070'}}
                 className="react-switch-label"
                 htmlFor={`react-switch-new`}
             >
@@ -24,6 +27,14 @@ const ModeToggle = ({ handleToggle, toggle }) => {
             <span className="toggle-tag">DARK</span>
         </div>
       );
-}
+};
 
-export default ModeToggle;
+const mapStateToProps = ({theme: {darkMode}}) => ({
+    darkMode
+});
+
+const mapDispatchToProps = dispatch => ({
+    toggleTheme: () => dispatch(toggleTheme())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModeToggle);

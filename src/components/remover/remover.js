@@ -3,13 +3,9 @@ import './remover.scss';
 
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
-const Remover = ({remove, location, toggle}) => {
-    const removing = (e) => {
-        e.preventDefault();
-        remove(location);
-    }
+const Remover = ({toggle, onClick}) => {
     return(
-        <div className="remover-container" onClick={removing}>
+        <div className="remover-container" onClick={onClick}>
             <DeleteOutlineIcon className={`delete-icon delete-${toggle?'dark':''}`}/>
         </div>
     );

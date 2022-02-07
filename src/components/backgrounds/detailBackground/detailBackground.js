@@ -1,8 +1,10 @@
 import React from 'react';
 import './detailBackground.scss';
 
-const DetailBackground = ({children, toggle}) => (
-    <div className={`detailBackground detailBackground-${toggle?'dark':''}`}>
+import { connect } from 'react-redux';
+
+const DetailBackground = ({children, darkMode}) => (
+    <div className={`detailBackground detailBackground-${darkMode?'dark':''}`}>
         <div className="background">
             <div className="circle" id="C1"></div>
             <div className="circle" id="C2"></div>
@@ -15,4 +17,8 @@ const DetailBackground = ({children, toggle}) => (
     </div>
 );
 
-export default DetailBackground;
+const mapStateToProps = ({theme: {darkMode}}) => ({
+    darkMode
+});
+
+export default connect(mapStateToProps)(DetailBackground);

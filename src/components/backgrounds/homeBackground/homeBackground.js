@@ -1,10 +1,16 @@
 import React from 'react';
 import './homeBackground.scss';
 
-const HomeBackground = ({children, toggle}) => (
-    <div className={`homeBackground homeBackground-${toggle?'dark':''}`}>
+import { connect } from 'react-redux';
+
+const HomeBackground = ({children, darkMode}) => (
+    <div className={`homeBackground homeBackground-${darkMode?'dark':''}`}>
         {children}
     </div>
 );
 
-export default HomeBackground;
+const mapStateToProps = ({theme: { darkMode }}) => ({
+    darkMode
+});
+
+export default connect(mapStateToProps)(HomeBackground);

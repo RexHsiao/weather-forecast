@@ -1,40 +1,23 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { connect } from 'react-redux';
 
 import './directory.scss';
 import PropTypes from 'prop-types';
 import Card from '../card';
 import CurrentDayForecast from '../currentDayForecast';
 import Add from '../add';
-import Remover from '../remover';
 
 
-const Directory = ({toggle, searchSetting, forecasts, submitSearch, infoSetting, remove, addCitiesForecasts}) => {
+
+const Directory = ({toggle, searchSetting, currentForecasts, submitSearch, infoSetting, remove, addCitiesForecasts}) => {
     
-    const [newForecasts, setNewForecasts] = useState();
-
-    forecasts.then( value => { setNewForecasts(value)});
     
     return (
         <div className="directory">
-            {newForecasts?.map(({currentDay}) => (
-                <div className="newCitiesCard">
+            {currentForecasts?.map((forecast) => (
+                <div className="newCitiesCard" key={forecast.currentDay.location}>
                     <CurrentDayForecast 
-                        {...currentDay} 
-                        key={currentDay.location}
-                        toggle={toggle}
-                        submitSearch={submitSearch}
-                        infoSetting={infoSetting}
-                        remove={remove}
-                    />
-                </div>
-            ))}
-            {addCitiesForecasts?.map(({currentDay}) => (
-                <div className="newCitiesCard">
-                    <Remover remove={remove} toggle={toggle} location={currentDay.location}/>
-                    <CurrentDayForecast 
-                        {...currentDay} 
-                        key={currentDay.location}
+                        forecast = {forecast}
                         toggle={toggle}
                         submitSearch={submitSearch}
                         infoSetting={infoSetting}
@@ -57,4 +40,8 @@ Directory.propTypes = {
     })
 };
 
-export default Directory;
+const mapStateToProps = ({forecasts: { currentForecasts }}) => ({
+    currentForecasts
+})
+
+export default connect(mapStateToProps)(Directory);

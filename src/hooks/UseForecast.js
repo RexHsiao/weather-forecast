@@ -48,28 +48,6 @@ const UseForecast = () => {
         setLoading(false);
     }
 
-    const gatherForecastsData = async (data) => {
-        const currentDay = getCurrentDayForecast(data.consolidated_weather[0], data.title);
-
-        return {currentDay};
-    }
-
-    const getForecastsArray = async (locations) => {
-        const newForecasts = [];
-
-        for (const location of locations) {
-            const response = await getWoeid(location);
-            if (!response?.woeid) return;
-            const data = await getForecastData(response.woeid);
-            if (data.title === location) {
-                const cityForecast = await gatherForecastsData(data);
-                newForecasts.push(cityForecast);
-            }
-        }
-
-        return newForecasts;
-    }
-
     //call the api
     const submitRequest = async (location) => {
         setLoading(true);
@@ -83,22 +61,13 @@ const UseForecast = () => {
         gatherForecastData(data);
     };
 
-    const submitRequests = async (locations) => {
-        setLoading(true);
-        setError(false);
-
-        const newForecasts = await getForecastsArray(locations);
-        setLoading(false);
-        
-        return await Promise.all(newForecasts);
-    }
 
     const resetForecast = () => {
         setForecast(null);
     }
 
     return {
-        isError, isLoading, forecast, submitRequest, submitRequests, resetForecast
+        isError, isLoading, forecast, submitRequest, resetForecast
     }
 };
 

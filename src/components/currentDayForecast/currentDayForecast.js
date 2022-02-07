@@ -1,23 +1,33 @@
 import React from 'react';
 import './currentDayForecast.scss';
-import Card from '../card';
 
+import { connect } from 'react-redux';
+import { removeForecast } from '../../redux/forecasts/forecasts.action';
+
+
+import Card from '../card';
 import Remover from '../remover';
 
 const CurrentDayForecast = ({
+    forecast,
     toggle,
-    remove,
+    removeForecast,
     submitSearch,
     infoSetting,
-    date,
-    location, 
-    temperature, 
-    weatherIcon,
-    weatherDescription,
-    max_temp,
-    min_temp}) => {
+    }) => {
+    const {date,
+        location, 
+        temperature, 
+        weatherIcon,
+        weatherDescription,
+        max_temp,
+        min_temp} = forecast.currentDay;
+
+    const onClick = () => {
+        removeForecast(forecast);
+    }
     return (<>
-        <Remover remove={remove} toggle={toggle} location={location}/>
+        <Remover onClick={onClick} toggle={toggle} location={location}/>
         <Card toggle={toggle} id={location} submitSearch={submitSearch} infoSetting={infoSetting} date={date}>    
             <div><h3>{location}</h3></div>
             <div className="status-img">
@@ -45,4 +55,8 @@ const CurrentDayForecast = ({
     );
 };
 
-export default CurrentDayForecast;
+const mapDispatchToProps = dispatch => ({
+    removeForecast: forecast => dispatch(removeForecast(forecast))
+})
+
+export default connect(null, mapDispatchToProps)(CurrentDayForecast);
