@@ -35,7 +35,6 @@ const UseForecast = () => {
               ...data.city,
               list: data.list.slice(0, 6),
             }
-            console.log(forecastData)
             gatherForecastData(forecastData)
           })
           .catch((e) => console.log({ e }))
@@ -65,9 +64,17 @@ const UseForecast = () => {
     }
 
     //call the api
-    const submitRequest = async () => {
+    const submitRequest = async (value, currentForecasts) => {
         setLoading(true);
         setError(false);
+
+        const selectedCity = currentForecasts?.filter(item => item.currentDay.location === value)
+
+        if (selectedCity.length) {
+            setForecast(selectedCity[0])
+            setLoading(false);
+            return
+        }
 
         if (term === '') {
             setError('Please enter a city name to search');

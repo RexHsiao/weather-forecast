@@ -17,7 +17,7 @@ import useForecast from '../../hooks/UseForecast';
 import { connect } from 'react-redux';
 import { addForecast } from '../../redux/forecasts/forecasts.action';
 
-const HomePage = ({handleToggle, toggle, addForecast}) => {
+const HomePage = ({handleToggle, toggle, addForecast, currentForecasts}) => {
     const { isError, isLoading, forecast, submitRequest, resetForecast, onInputChange, term, onOptionSelect, options } = useForecast();
     const [info, setInfo] = useState('TODAY');
     const [isSearching, setSearching] = useState(false);
@@ -44,7 +44,7 @@ const HomePage = ({handleToggle, toggle, addForecast}) => {
     }
 
     const onSubmit = async (value) => {
-        await submitRequest(value);
+        await submitRequest(value, currentForecasts);
     };
 
     const backHome = () => {
@@ -104,4 +104,8 @@ const mapDispatchToProps = dispatch => ({
     addForecast: (forecast) => dispatch(addForecast(forecast))
 })
 
-export default connect(null, mapDispatchToProps)(HomePage);
+const mapStateToProps = ({forecasts: { currentForecasts }}) => ({
+    currentForecasts
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

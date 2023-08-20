@@ -9,7 +9,7 @@ import Add from '../add';
 
 
 
-const Directory = ({toggle, searchSetting, currentForecasts, submitSearch, infoSetting, remove, addCitiesForecasts}) => {
+const Directory = ({toggle, searchSetting, currentForecasts, submitSearch, infoSetting, remove}) => {
     
     
     return (
