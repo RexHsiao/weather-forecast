@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import Suggestions from '../suggestions';
 import './form.scss';
 
-const Form = ({submitSearch, toggle}) => {
+const Form = ({onInputChange, term, submitSearch, toggle, options, onOptionSelect}) => {
     const [ location, setLocation ] = useState('');
+
+    useEffect(() => {
+        setLocation(term || '');
+    }, [term])
+
     const onSubmit = (e) => {
         e.preventDefault();
-        if (!location || location === '') return;
-        submitSearch(location);
+        submitSearch(term);
+        setLocation('');
     }
     return (
         <div className="form">
@@ -20,9 +26,10 @@ const Form = ({submitSearch, toggle}) => {
                         placeholder="Search for location"
                         required 
                         value={location}
-                        onChange={e => setLocation(e.target.value)}
+                        onChange={onInputChange}
                     />
                 </div>
+                <Suggestions options={options} onSelect={onOptionSelect} />
                 <div>
                     <button 
                     type="submit" 

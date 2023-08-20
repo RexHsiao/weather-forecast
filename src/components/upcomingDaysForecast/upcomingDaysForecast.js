@@ -7,7 +7,7 @@ const UpcomingDaysForecast = ({days}) => (
     <div className="upcoming-box">
         <ul className="weekList">
             {days.map((day) => (
-                <UpcomingDaysForecastItem {...day} key={day.weekday} />
+                <UpcomingDaysForecastItem {...day} key={day.id} />
             ))}
         </ul>
     </div>

@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
 import { addForecast } from '../../redux/forecasts/forecasts.action';
 
 const HomePage = ({handleToggle, toggle, addForecast}) => {
-    const { isError, isLoading, forecast, submitRequest, resetForecast } = useForecast();
+    const { isError, isLoading, forecast, submitRequest, resetForecast, onInputChange, term, onOptionSelect, options } = useForecast();
     const [info, setInfo] = useState('TODAY');
     const [isSearching, setSearching] = useState(false);
 
@@ -76,7 +76,16 @@ const HomePage = ({handleToggle, toggle, addForecast}) => {
                 <DetailBackground toggle={toggle}>
                     <Board toggle={toggle}>
                         <ArrowBack backHome={backHome}/>
-                        {!isLoading && <Form submitSearch={onSubmit} toggle={toggle}/>}
+                        {!isLoading && 
+                            <Form 
+                                onInputChange={onInputChange} 
+                                term={term} 
+                                submitSearch={onSubmit} 
+                                toggle={toggle}
+                                onOptionSelect={onOptionSelect}
+                                options={options}
+                            />
+                        }
                         {isLoading && <Loader />}
                         {isError && <Error message={isError} />}
                     </Board>
