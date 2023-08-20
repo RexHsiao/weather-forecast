@@ -4,7 +4,7 @@ import getCurrentDayDetails from '../helpers/getCurrentDayDetails';
 import getCurrentDayForecast from '../helpers/getCurrentDayForecast';
 import getUpcomingForecast from '../helpers/getUpcomingForecast';
 
-const BASE_URL = 'http://api.openweathermap.org';
+const BASE_URL = 'https://api.openweathermap.org';
 
 const UseForecast = () => {
     const [isError, setError] = useState(false);
@@ -35,6 +35,7 @@ const UseForecast = () => {
               ...data.city,
               list: data.list.slice(0, 6),
             }
+            console.log(forecastData)
             gatherForecastData(forecastData)
           })
           .catch((e) => console.log({ e }))
@@ -57,7 +58,7 @@ const UseForecast = () => {
         const value = e?.target?.value.trim() || cityName
         setTerm(value)
         setOptions([])
-        
+
         if (!!value) {
             getSearchOptions(value)
         }
